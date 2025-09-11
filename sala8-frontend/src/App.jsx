@@ -29,7 +29,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="w-full bg-sky-500 text-white py-3 text-center">
-        <p className="text-sm">© 2025 Proyecto de Logging Estructurado</p>
+        <p className="text-sm">© 2025 - Proyecto de Logging Estructurado</p>
       </footer>
     </div>
   );
