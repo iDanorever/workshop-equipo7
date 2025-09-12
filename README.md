@@ -1,33 +1,84 @@
+# 📑🔎 Proyecto Django + React + GHL
 
-# backend
+Este proyecto combina un **backend en Django REST Framework** y un **frontend en React + Vite**.  
+La parte de backend se encarga de la **lógica de negocio, base de datos y APIs**, mientras que el frontend ofrece una **interfaz rápida e interactiva**.
 
-Desarrollo del servidor, lógica de negocio, bases de datos y APIs del proyecto. Encargada de la funcionalidad central, seguridad y comunicación con el frontend.
+---
 
-🚀 Funcionalidades clave:
+## ⚙️ Backend (Django + DRF)
 
-- 🗄️ API RESTful o GraphQL (Endpoints para CRUD y lógica de negocio).
+Desarrollo del servidor, lógica de negocio, bases de datos y APIs del proyecto.  
+Encargado de la funcionalidad central, seguridad y comunicación con el frontend.
+
+🚀 **Funcionalidades clave:**
+- 🗄️ API RESTful (endpoints para CRUD y lógica de negocio).
 - 🔐 Autenticación y autorización (JWT, OAuth, bcrypt).
-- 🐘 Base de datos (MySQL, PostgreSQL, MongoDB, etc.).
-- 📡 Comunicación en tiempo real (WebSockets, Socket.io, si aplica).
+- 🐘 Base de datos (MySQL, PostgreSQL, etc.).
+- 📡 Documentación interactiva con Swagger UI.
 - 🧠 Lógica de negocio y validaciones.
-- 🧪 Testing (Jest, Mocha, Supertest).
-- 🐋 Contenedores y despliegue (Docker, CI/CD)
-=======
+- 🧪 Testing (Pytest, Unittest, DRF test).
+- 🐋 Contenedores y despliegue (Docker, CI/CD).
 
-# React + Vite
+### 📖 Documentación con Swagger
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+La API está documentada con **Swagger UI** y **Redoc** usando [drf-yasg](https://github.com/axnsan12/drf-yasg).
 
-Currently, two official plugins are available:
+- 📄 Swagger UI → [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/)  
+- 📘 Redoc → [http://127.0.0.1:8000/redoc/](http://127.0.0.1:8000/redoc/)  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🔗 Endpoints principales
 
-## Expanding the ESLint configuration
+#### 1. 📅 Calendarios
+```http
+GET /ghl/calendars/
+[
+  {"id": 1, "name": "Calendario Principal"},
+  {"id": 2, "name": "Calendario Secundario"}
+]
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+#### 2. 📝 Crear cita
+```http
+POST /ghl/appointments/create/
+{
+  "calendar_id": 1,
+  "date": "2025-09-15",
+  "time": "10:00",
+  "client_name": "Juan Pérez"
+}
+{
+  "id": 101,
+  "calendar_id": 1,
+  "date": "2025-09-15",
+  "time": "10:00",
+  "client_name": "Juan Pérez"
+}
+```
 
-# 📑🔎Ejercicio de Django + React + GHL
+## 🎨 Frontend (React + Vite)
 
-AQUI MOSTRAREMOS EN GITHUB NUESTRO PROYETO
+Interfaz de usuario desarrollada en **React con Vite**, optimizada para velocidad y experiencia de desarrollo.
 
+✨ **Características:**
+
+- ⚡️ Vite para desarrollo rápido y HMR.  
+- 🎨 React con JSX/TSX.  
+- ✅ ESLint integrado para buenas prácticas.  
+- 🔄 Comunicación con la API REST de Django.  
+- 🧪 Testing con Jest/React Testing Library.  
+
+Actualmente, dos plugins oficiales están disponibles:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react) → usa **Babel** para Fast Refresh.  
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) → usa **SWC** para Fast Refresh.  
+
+👉 Si desarrollas una aplicación en producción, se recomienda usar **TypeScript** y [`typescript-eslint`](https://typescript-eslint.io).  
+
+---
+
+## 📦 Tecnologías utilizadas
+
+- **Backend:** Django, Django REST Framework, drf-yasg (Swagger)  
+- **Frontend:** React, Vite  
+- **Base de datos:** PostgreSQL / MySQL  
+- **Otros:** Docker, GitHub Actions (CI/CD)  
